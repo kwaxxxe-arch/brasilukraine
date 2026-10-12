@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ukraine & Brasil 67</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg: #090a0f;
+            --ukraine-yellow: #ffd700;
+            --ukraine-blue: #0057b7;
+            --brasil-green: #009c3b;
+            --brasil-yellow: #ffdf00;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: #ffffff;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Ambient Glowing Background Orbs */
+        .ambient-glow {
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            filter: blur(140px);
+            opacity: 0.25;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .glow-1 {
+            background: var(--ukraine-blue);
+            top: -100px;
+            left: -100px;
+            animation: float 12s ease-in-out infinite alternate;
+        }
+
+        .glow-2 {
+            background: var(--brasil-green);
+            bottom: -100px;
+            right: -100px;
+            animation: float 12s ease-in-out infinite alternate-reverse;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        /* Glassmorphic Card Styling */
+        .card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 28px;
+            padding: 2.5rem;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .card:hover {
+            transform: translateY(-8px) scale(1.01);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Ukrainian Theme Styling */
+        .card.ukraine {
+            box-shadow: 0 20px 40px rgba(0, 87, 183, 0.15);
+        }
+
+        .card.ukraine:hover {
+            box-shadow: 0 30px 60px rgba(0, 87, 183, 0.3);
+        }
+
+        .card.ukraine h2 {
+            background: linear-gradient(135deg, var(--ukraine-yellow), #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Brasil Theme Styling */
+        .card.brasil {
+            box-shadow: 0 20px 40px rgba(0, 156, 59, 0.15);
+        }
+
+        .card.brasil:hover {
+            box-shadow: 0 30px 60px rgba(0, 156, 59, 0.3);
+        }
+
+        .card.brasil h2 {
+            background: linear-gradient(135deg, #00ff66, var(--brasil-yellow));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        h2 {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(1.8rem, 5vw, 2.8rem);
+            font-weight: 800;
+            text-align: center;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
+
+        .highlight-67 {
+            display: inline-block;
+            padding: 0.1em 0.4em;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            font-feature-settings: "tnum";
+        }
+
+        .img-wrapper {
+            position: relative;
+            padding: 10px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.4s ease;
+        }
+
+        .card:hover .img-wrapper {
+            transform: scale(1.05) rotate(2deg);
+        }
+
+        img {
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 14px;
+            display: block;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(60px, 40px); }
+        }
+
+        @media (max-width: 600px) {
+            .card {
+                padding: 1.5rem;
+            }
+            img {
+                width: 140px;
+                height: 140px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ambient-glow glow-1"></div>
+    <div class="ambient-glow glow-2"></div>
+
+    <div class="container">
+        
+        <!-- Ukraine Card -->
+        <div class="card ukraine">
+            <h2>Ukraine loves <span class="highlight-67">67</span> and Brasil</h2>
+            <div class="img-wrapper">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFwAAAA9CAMAAAAXmf6VAAAAFVBMVEUAV7f/1wAAULyopWH/2wD/2ADqziY0yPxoAAAAMklEQVRYhe3MRxEAIAADsDL9S0ZFj08iIAkAAPwwi7KKsosyiuRyuVwul8vl9fwU5RY9sPAQ5UQD7+gAAAAASUVORK5CYII=" alt="Ukraine Icon">
+            </div>
+        </div>
+
+        <!-- Brasil Card -->
+        <div class="card brasil">
+            <h2>Brasil loves <span class="highlight-67">67</span> and Ukraine</h2>
+            <div class="img-wrapper">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTab-lAuWVcUzZ87ueIYDaKS0xCYbtv-0uvhlfcRk5o-HJjhue4oKY8&usqp=CAE&s" alt="Brasil Icon">
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
